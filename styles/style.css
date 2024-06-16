@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box; /* свойство нужно для правильного расчета внутренних и внешних границ блока */
+}
+
+/* сбрасываем внутренние и внешние отступы у основных элементов */
+h1, h2, h3, h4, p {
+    margin: 0; /* внешние отступы */
+    padding: 0; /* внутренние отступы */
+} 
+
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* убираем маркеры у списка (у элементов li не будет точек) */
+ul {
+    list-style: none; /* стиль списка */
+}
+
+/* основные стили для body документа */
+body {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: "Roboto", sans-serif; /* семейство шрифтов */
+    position: relative; /* нужно для позиционирования дочерних элементов или псевдоэлементов */
+}
+
+/* псевдоэлемент для body, отвечает за фоновый цвет */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; /* смещение по y */
+    left: 0; /* смещение по x */
+    width: 100%; /* ширина */
+    height: 100%; /* высота */
+    background-color: rgb(181, 229, 29);
+    z-index: -1; /* смещение по оси z */
+}
+
+/* контейнер для блока main (нужен для позиционирования внутренних элементов) */
+.main-container {
+    display: flex; /* расставляет дочерние элементы друг за другом по умолчанию */
+    flex-direction: column; /* назначает flex-ось по оси y */
+    margin: 0 auto; /* дает одинаковые отступы слева и справа */
+    width: 80vw;
+    gap: 20px 0px; /* отступы между flex-элементами (дочерними) */
+    margin-bottom: 40px;
+}
+
+.hero-container {
+    word-wrap: break-word;
+}
+
+.main-container h1 {
+    text-align: center; /* текст в этом блоке будет ровно по центру */
+    text-transform: uppercase; /* текст пишется заглвными буквами */
+}
+
+.main-container p {
+    padding-left: 10px;
+    border-left: 3px solid rgb(161, 202, 26); /* граница слева у блока*/
+}
+
+.section-container {
+    margin: 0 auto;
+    width: 80vw;
+}
+
+.libraries-list {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between; /* элементы делят пространство родителя одинаково */
+}
+
+/* стили для колонки с инфой о библиотеке */
+.libraries-list__item {
+    width: 50%;
+    background-color: white;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22); /* свойство отвечает за тень у блока */
+    cursor: pointer; /* курсор превращается в указатель при наведении на блок */
+    padding-bottom: 10px;
+    transition: transform 0.3s ease; /* задает плавность анимации */
+}
+
+/* стили, которые отвечают за поведение элемента при наведении курсора */
+.libraries-list__item:hover {
+    scale: 1.005; /* масштабирует элемент в x раз */
+    transform: scale(1.01);
+}
+
+.libraries-list__item__info {
+    padding: 10px;
+    height: 240px;
+}
+
+.libraries-list__item__info p {
+    margin-bottom: 10px;
+}
+
+.libraries-list__item h3 {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* стилизация картинок, которые находятся в колнке */
+.libraries-list__item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* картинка меняет свой размер, сохраняя свои пропорции */
+    margin-bottom: 10px;
+}
+
+/* last-child - последний элемент данного тэга в блоке */
+.libraries-list__item img:last-child {
+    width: 100%;
+    height:auto;
+    object-fit: cover;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.libraries-list__item img:last-child {
+    margin-bottom: 0px;
+}
+
+.program-container {
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+/* стилизация блока с кодом */
+.code {
+    display: block; /* строчный элемент становится блочным (span - по умолчанию строчный) */
+    white-space: pre; /* сохраняет пробелы в исходном коде (сохраняет форматирование) */
+    font-family: monospace; /* шрифт monospace */
+    padding: 5px;
+    background-color: rgb(45, 45, 45); 
+    color: white; /* цвет шрифта */
+}
+
+/* стилизация разделителя */
+.divider {
+    height: 1px;
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgb(235, 229, 230);
+}

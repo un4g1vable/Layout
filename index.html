@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css"> <!--подключаем стили styles.css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--подключаем шрифт google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Макет</title>
+</head>
+<body>
+    <main>
+        <div class="main-container"> <!--тэг main содержит главный контент либо вступление страницы-->
+            <h1>Графика и построение изображений на языке C++</h1>
+            <div class="hero-container">
+                <p> <!--тэг p - абзац текста-->
+                    На C ++ программирование графического пользовательского интерфейса (GUI) важно при разработке современных приложений, 
+                    где у пользователей есть приятная графика для работы. 
+                    Хотя C ++ обычно связан с системным программированием и написанием игр, 
+                    он может быть отличной альтернативой написанию GUI. 
+                    <br><br>Рассмотрим несколько графических библиотек, которые позволяют сделать 
+                    разработку UI приложений максимально удобной
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <section> <!--секция, в которой находятся колонки о библиотеках-->
+        <div class="section-container">
+            <ul class="libraries-list"> <!--семантически колонки - это список библиотек, поэтому заключаем в ul-->
+                <li class="libraries-list__item"> <!--колонка с информацией о библиотеке-->
+                    <h3>Библиотека QT</h3>
+                    <img src="assets/qt.jpg" alt="qt">
+
+                    <div class="libraries-list__item__info">
+                        <p>
+                            <b>QCustomPlot</b> — это виджет Qt C++ для построения графиков и визуали-зации данных. 
+                            Он не имеет дополнительных зависимостей 
+                            и хорошо докумен-тирован. Эта библиотека построения графиков предназначена 
+                            для создания красивых 2D-графиков, графиков и диаграмм издательского качества
+                            Устанавливается QtCreator, загружается виджет QCustomPlot и 
+                            добавляются его файлы в проект. После чего данный виджет будет готов к использованию, 
+                            достаточно всего лишь перенести его на редактор графических форм.
+                        </p>
+                    </div>
+                    
+                    <div class="divider"></div> <!--divider - разделитель-->
+
+                    <div class="program-container"> <!--контейнер, содержащий кодовый блок-->
+                        <h3>Код программы</h3>        
+<span class="code">QVector&ltdouble&gt x(101), y(101); <!--блок с кодом c++, span удобен для подобного рода контента-->
+for (int i=0; i&lt101; ++i)
+{
+    x[i] = i/50.0 - 1; // x идёт от -1 до 1
+    y[i] = x[i]*x[i]; // зададим квадратичную функцию
+}
+// создаём график и назначаем данные:
+customPlot->addGraph();
+customPlot->graph(0)->setData(x, y);
+// подпишем оси:
+customPlot->xAxis->setLabel("x");
+customPlot->yAxis->setLabel("y");
+// установим диапазоны осей, чтобы были видны все данные:
+customPlot->xAxis->setRange(-1, 1);
+customPlot->yAxis->setRange(0, 1);
+customPlot->replot();
+</span>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <h3>Результат</h3>
+                                            
+                                        <img src="assets/qt_result.jpg" alt="qt">
+                </li>
+                <li class="libraries-list__item">
+                    <h3>Библиотека graphics.h</h3>
+                    <img src="assets/graphics.jpg" alt="graphics.h">
+                    <div class="libraries-list__item__info">
+                        <p>
+                            Библиотека <b>Graphics</b> в C++ предназначена для создания графической модели, например, для создания различных 
+                            фигур и добавления к ним цветов. Это можно сделать в консоли C++, импортировав библиотеку graphics.h в компилятор GCC. 
+                            Мы также можем нарисовать круг, линию и другие геометрические фигуры. 
+                            Формальный синтаксис приведен в следующем виде: 
+                        </p>
+<span class="code"># include&ltgraphics.h&gt
+{
+    Initgraph(); 
+}                   
+</span>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="program-container">
+                    <h3>Код программы</h3>
+<span class="code">#include &ltgraphics.h&gt
+#include &ltiostream&gt
+int main() {
+    int gd = DETECT, gm;
+    initgraph(&gd, &gm, "");
+    line(140, 140, 350, 100);
+    line(140, 140, 200, 200);
+    line(350, 140, 200, 200);
+    getch();
+    closegraph();
+}
+</span>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <h3>Результат</h3>
+                    <img src="assets/gr_result.jpg" alt="qt">
+                </li>
+            </ul>
+        </div> 
+    </section>
+</body>
+</html>
